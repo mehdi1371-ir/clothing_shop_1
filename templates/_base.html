@@ -59,7 +59,7 @@ https://templatemo.com/tm-571-hexashop
                             <li class="scroll-to-section"><a href="#men">Men's</a></li>
                             <li class="scroll-to-section"><a href="#women">Women's</a></li>
                             <li class="scroll-to-section"><a href="#kids">Kid's</a></li>
-                            <li class="submenu">
+                            {% comment %} <li class="submenu">
                                 <a href="javascript:;">Registration</a>
                                 <ul>
                                     {% if user.is_authenticated %}
@@ -71,14 +71,14 @@ https://templatemo.com/tm-571-hexashop
                                         <li><a href="{% url 'login' %}">Login</a></li>
                                     {% endif %}
                                 </ul>
-                            </li>
+                            </li> {% endcomment %}
                             <li class="submenu">
                                 <a href="javascript:;">Pages</a>
                                 <ul>
-                                    <li><a href="{% url 'about' %}">About Us</a></li>
+                                    <li><a href="#">About Us</a></li>
                                     <li><a href="products.html">Products</a></li>
                                     <li><a href="single-product.html">Single Product</a></li>
-                                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                                    <li><a href="#">Contact Us</a></li>
                                 </ul>
                             </li>
                             <li class="submenu">
