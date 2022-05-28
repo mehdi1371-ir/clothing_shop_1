@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load static %}
 
 {% block page_title %}Home{% endblock page_title %}
 
@@ -18,7 +19,7 @@
                                 <a href="#">Purchase Now!</a>
                             </div>
                         </div>
-                        <img src="assets/images/left-banner-image.jpg" alt="">
+                        <img src="{% static 'images/left-banner-image.jpg' %}" alt="">
                     </div>
                 </div>
             </div>
@@ -41,7 +42,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <img src="assets/images/baner-right-image-01.jpg">
+                                    <img src="{% static 'images/baner-right-image-01.jpg' %}">
                                 </div>
                             </div>
                         </div>
