@@ -1,6 +1,8 @@
-from django.views.generic import TemplateView, ListView
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, ListView, FormView
 
 from .models import AboutUs, OurTeam, OurService
+from .forms import ContactUsForm
 
 
 class HomePageView(TemplateView):
@@ -18,4 +20,12 @@ class AboutPageView(ListView):
         context['services'] = OurService.objects.all()
         return context
 
-    
+
+class ContactUsFormView(FormView):
+    template_name = 'pages/contact_us.html'
+    form_class = ContactUsForm
+    success_url = reverse_lazy('contact')
+
+    def form_valid(self, form):
+        form.send_email()
+        return super().form_valid(form)

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # Third party
     'debug_toolbar',
+    'crispy_forms',
 
     # my apps
     'accounts',
