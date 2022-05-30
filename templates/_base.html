@@ -56,22 +56,9 @@ https://templatemo.com/tm-571-hexashop
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="{% url 'home' %}" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#men">Men's</a></li>
-                            <li class="scroll-to-section"><a href="#women">Women's</a></li>
-                            <li class="scroll-to-section"><a href="#kids">Kid's</a></li>
-                            {% comment %} <li class="submenu">
-                                <a href="javascript:;">Registration</a>
-                                <ul>
-                                    {% if user.is_authenticated %}
-                                        <li><a href="#">Hi {{ user.username }}</a></li>
-                                        <li><a href="{% url 'password_change' %}">Change Password</a></li>
-                                        <li><a href="{% url 'logout' %}">Logout</a></li>
-                                    {% else %}
-                                        <li><a href="{% url 'signup' %}">Signup</a></li>
-                                        <li><a href="{% url 'login' %}">Login</a></li>
-                                    {% endif %}
-                                </ul>
-                            </li> {% endcomment %}
+                            {% for cat in cat_list %}
+                                <li class="scroll-to-section"><a href="#men">{{ cat.name }}</a></li>
+                            {% endfor %}
                             <li class="submenu">
                                 <a href="javascript:;">Pages</a>
                                 <ul>
