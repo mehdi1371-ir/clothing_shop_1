@@ -56,9 +56,14 @@ https://templatemo.com/tm-571-hexashop
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="{% url 'home' %}" class="active">Home</a></li>
-                            {% for cat in cat_list %}
-                                <li class="scroll-to-section"><a href="#men">{{ cat.name }}</a></li>
-                            {% endfor %}
+                            <li class="submenu">
+                                <a href="javascript:;">Categories</a>
+                                <ul>
+                                    {% for category in menu_categories %}
+                                        <li><a href="{% url 'category' category.slug %}">{{ category.name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
                             <li class="submenu">
                                 <a href="javascript:;">Pages</a>
                                 <ul>

@@ -4,6 +4,7 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
+    slug= models.SlugField(unique=True)
     
     class Meta:
         verbose_name_plural = 'categories'
@@ -25,4 +26,4 @@ class Product(models.Model):
         return self.title
     
     def get_absolute_url(self):
-        return reverse('ProductDtailView', args=[self.slug])
+        return reverse('product_detail', args=[self.slug])
