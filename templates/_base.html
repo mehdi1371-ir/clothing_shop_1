@@ -49,7 +49,7 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
+                        <a href="{% url 'home' %}" class="logo">
                             <img src="{% static 'images/logo.png' %}">
                         </a>
                         <!-- ***** Logo End ***** -->
@@ -67,19 +67,20 @@ https://templatemo.com/tm-571-hexashop
                             <li class="submenu">
                                 <a href="javascript:;">Pages</a>
                                 <ul>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="products.html">Products</a></li>
-                                    <li><a href="single-product.html">Single Product</a></li>
-                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="{% url 'about' %}">About Us</a></li>
+                                    <li><a href="{% url 'products' %}">Products</a></li>
+                                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
                                 </ul>
                             </li>
                             <li class="submenu">
-                                <a href="javascript:;">Features</a>
+                                <a href="javascript:;">Registration</a>
                                 <ul>
-                                    <li><a href="#">Features Page 1</a></li>
-                                    <li><a href="#">Features Page 2</a></li>
-                                    <li><a href="#">Features Page 3</a></li>
-                                    <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>
+                                    <li><a href="{% url 'signup' %}">Signup</a></li>
+                                    {% if user.is_authenticated %}
+                                        <li><a href="{% url 'logout' %}">Logout ({{ user.username }})</a></li>
+                                    {% else %}
+                                        <li><a href="{% url 'login' %}">Login</a></li>
+                                    {% endif %}
                                 </ul>
                             </li>
                             <li class="scroll-to-section"><a href="#explore">Explore</a></li>
