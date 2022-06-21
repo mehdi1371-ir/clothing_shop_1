@@ -15,7 +15,6 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('category', args=[self.slug])
 
-
 class Product(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)

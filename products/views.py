@@ -7,16 +7,14 @@ from .models import Product, Category
 class ProductListView(ListView):
     model = Product
     template_name = 'products/products.html'
-    context_object_name = 'products'
+    context_object_name = 'all_products'
 
 
 class ProductDetailView(DetailView):
     model = Product
     template_name = 'products/products_detail.html'
     context_object_name = 'product'
-
-    def get_object(self):
-        return get_object_or_404(Product, slug=self.kwargs.get("slug"))
+    
 
 class CategoryListView(ListView):
     template_name = 'products/category_detail.html'

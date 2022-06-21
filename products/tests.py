@@ -1,7 +1,6 @@
-from email.mime import image
 import tempfile
+from django.urls import reverse
 from django.test import TestCase
-from django.core.files.uploadedfile import SimpleUploadedFile
 
 from .models import Product, Category
 
@@ -34,3 +33,7 @@ class ProductTest(TestCase):
         self.assertEqual(self.product.image1, self.image1)
         self.assertEqual(self.product.image2, self.image2)
         self.assertEqual(self.product.category, self.category)
+
+    def test_product_page_url(self):
+        response = self.client.get(reverse('products_list'))
+        self.assertEqual(response.status_code, 200)
