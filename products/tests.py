@@ -8,7 +8,7 @@ from .models import Product, Category
 class ProductTest(TestCase):
     @classmethod
     def setUpTestData(cls):
-        cls.category = Category.objects.create(name='mens')
+        cls.category = Category.objects.create(name='mens', slug='mens')
         cls.image1 = tempfile.NamedTemporaryFile(suffix=".jpg").name
         cls.image2 = tempfile.NamedTemporaryFile(suffix=".jpg").name
         cls.product = Product.objects.create(
