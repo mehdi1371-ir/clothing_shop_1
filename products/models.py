@@ -1,5 +1,7 @@
-from django.urls import reverse
 from django.db import models
+from django.urls import reverse
+from django.core.validators import MinValueValidator,MaxValueValidator
+
 
 
 class Category(models.Model):
@@ -29,3 +31,12 @@ class Product(models.Model):
     
     def get_absolute_url(self):
         return reverse('product_detail', args=[self.slug])
+
+class Rating(models.Model):
+    product = models.ForeignKey(Product, related_name='rates', on_delete=models.CASCADE)
+    rate = models.IntegerField(validators=[MinValueValidator(1),
+     MaxValueValidator(5)], default=0)
+
+
+    def __str__(self):
+        return f'{self.product.title}:{self.rate}'

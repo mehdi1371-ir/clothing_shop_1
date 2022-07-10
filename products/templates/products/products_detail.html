@@ -1,5 +1,7 @@
 {% extends '_base.html' %}
 
+{% load product_tags %}
+
 {% block page_title %}Details{% endblock page_title %}
 
 {% block content %}
@@ -32,6 +34,7 @@
             <div class="col-lg-4">
                 <div class="right-content">
                     <h4>{{ product.title }}</h4>
+                    <p>{{ rates|get_value:"Votes Average" }}</p>
                     <span class="price">${{ product.price }}</span>
                     <ul class="stars">
                         <li><i class="fa fa-star"></i></li>
